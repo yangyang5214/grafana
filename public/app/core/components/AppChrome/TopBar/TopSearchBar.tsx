@@ -31,6 +31,7 @@ export const TopSearchBar = React.memo(function TopSearchBar() {
   const profileNode = navIndex['profile'];
 
   let homeUrl = config.appSubUrl || '/';
+  const appTitle = Branding.AppTitle;
   if (!config.bootData.user.isSignedIn && !config.anonymousEnabled) {
     homeUrl = textUtil.sanitizeUrl(locationUtil.getUrlForPartial(location, { forceLogin: 'true' }));
   }
@@ -41,6 +42,9 @@ export const TopSearchBar = React.memo(function TopSearchBar() {
         <a className={styles.logo} href={homeUrl} title="Go to home">
           <Branding.MenuLogo className={styles.img} />
         </a>
+        <div>
+          {appTitle}
+        </div>
         <OrganizationSwitcher />
       </TopSearchBarSection>
 
